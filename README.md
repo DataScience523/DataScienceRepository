@@ -1,7 +1,7 @@
 # Ciencia de Datos - Organización
 
 ## Descripción
-Este repositorio forma parte de nuestra organización y proyecto de Ciencia de Datos, donde utilizamos herramientas de Python para el análisis de datos y documentación relevante.
+Este repositorio forma parte de nuestra organización y proyecto de Ciencia de Datos, donde utilizamos herramientas de Python para el análisis de datos, recopilación y documentación relevante.
 
 ## Contenido del Repositorio
 - *Scripts en Python*: Código para procesamiento, análisis y visualización de datos.
@@ -36,4 +36,4 @@ Si deseas contribuir, por favor sigue estos pasos:
 Este proyecto está bajo la licencia MIT.
 
 ## Contacto
-Para dudas o sugerencias, puedes contactarnos en [correo@ejemplo.com](mailto:correo@ejemplo.com).
+Para dudas o sugerencias, puedes contactarnos en [junseluco@gmail.com](junseluco@gmail.com).
