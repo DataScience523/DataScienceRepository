@@ -4,115 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rueda.css">
     <title>Rueda de la vida</title>
     <!-- Enlace a la hoja de estilos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Estilo global para el fondo y padding */
-        body {
-            background-color: #f4f7f6;
-            font-family: 'Arial', sans-serif;
-            color: #333;
-        }
-
-        /* Título principal */
-        .titulo h1 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #007bff;
-            font-size: 2.5rem;
-        }
-
-        /* Centrado de los inputs */
-        .centro {
-            width: 100%;  /* Asegura que ocupe el 100% del ancho de su contenedor */
-            max-width: 400px;  /* Limita el ancho máximo del input */
-            margin: 0 auto;  /* Centrado horizontal */
-            display: block;
-            text-align: center;  /* Centra el texto dentro del input */
-            border-radius: 10px;
-        }
-
-        /* Estilo de las preguntas (labels) */
-        label {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* Estilo para los inputs */
-        input[type="text"] {
-            padding: 15px;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            border: 2px solid #007bff;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: border-color 0.3s ease;
-        }
-
-        /* Cambiar color de borde cuando el input está en foco */
-        input[type="text"]:focus {
-            border-color: #28a745;
-            outline: none;
-        }
-
-        /* Estilo para los títulos de cada sección */
-        h3 {
-            font-size: 1.8rem;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
-        /* Contenedor para cada sección */
-        .section-container {
-            background-color: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        /* Total inputs con estilo */
-        .total input[type="text"] {
-            background-color: #e9f7fc;
-            border-color: #007bff;
-            font-weight: bold;
-        }
-
-        /* Espaciado entre los diferentes elementos */
-        .estilo {
-            margin-bottom: 20px;
-        }
-
-        .total {
-            margin-top: 20px;
-        }
-
-        /* Para hacer que los inputs se alineen verticalmente */
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Para los botones */
-        .btn-custom {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 30px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            border: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        /* Cambiar color al pasar el mouse sobre el botón */
-        .btn-custom:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 
 <body>
@@ -121,22 +16,32 @@
     <div class="container my-5 form-container">
 
         <!-- Titulo principal -->
-        <nav class="titulo">
+        <nav class="titulo">s
             <h1>Rueda de la vida</h1>
         </nav>
+        <div class="social section-container">
+            <div class="estilo">
+                <label  class="soci" >nombre:</label>
+                <input type="text" class="reg">
+                <label class="soci" for="soci">apellido:</label>
+                <input type="text" class="reg">
+            </div>
+
+            <div class="persona">
+                
+                
+            </div>
+        </div>
 
         <!-- Sección Social -->
         <div class="social section-container">
             <h3>Social</h3>
             <div class="estilo">
                 <label for="social1">¿Qué tan social eres en un entorno del 1 al 10?</label>
-                <input type="text" id="social1" class="form-control centro">
-                <label for="social2">¿Con qué frecuencia disfrutas interactuar con nuevas personas?</label>
-                <input type="text" id="social2" class="form-control centro">
             </div>
 
             <div class="total">
-                <input type="text" class="form-control centro" placeholder="Total">
+                <input type="number" class="form-control centro" placeholder="Total">
             </div>
         </div>
 
@@ -147,13 +52,10 @@
             <h3>Espiritual</h3>
             <div class="estilo">
                 <label for="espiritual1">¿Qué tan bien te sientes contigo mismo?</label>
-                <input type="text" id="espiritual1" class="form-control centro">
-                <label for="espiritual2">¿Cuál es tu estado mental?</label>
-                <input type="text" id="espiritual2" class="form-control centro">
             </div>
 
             <div class="total">
-                <input type="text" class="form-control centro" placeholder="Total">
+                <input type="number" class="form-control centro" placeholder="Total">
             </div>
         </div>
 
@@ -164,13 +66,10 @@
             <h3>Éxito</h3>
             <div class="estilo">
                 <label for="exito1">¿Qué tan exitoso te crees?</label>
-                <input type="text" id="exito1" class="form-control centro">
-                <label for="exito2">¿Cuánto has crecido en tus proyectos de vida?</label>
-                <input type="text" id="exito2" class="form-control centro">
             </div>
 
             <div class="total">
-                <input type="text" class="form-control centro" placeholder="Total">
+                <input type="number" class="form-control centro" placeholder="Total">
             </div>
         </div>
 
@@ -181,13 +80,10 @@
             <h3>Familia</h3>
             <div class="estilo">
                 <label for="familia1">¿Qué tanto te comunicas con tu familia hoy día?</label>
-                <input type="text" id="familia1" class="form-control centro">
-                <label for="familia2">¿Con cuántos familiares has hecho actividades?</label>
-                <input type="text" id="familia2" class="form-control centro">
             </div>
 
             <div class="total">
-                <input type="text" class="form-control centro" placeholder="Total">
+                <input type="number" class="form-control centro" placeholder="Total">
             </div>
         </div>
 
@@ -198,16 +94,12 @@
             <h3>Profesión</h3>
             <div class="estilo">
                 <label for="profesion1">¿Te sientes motivado/desmotivado con tu carrera actual?</label>
-                <input type="text" id="profesion1" class="form-control centro">
-                <label for="profesion2">¿Qué tanto es tu crecimiento en este entorno?</label>
-                <input type="text" id="profesion2" class="form-control centro">
             </div>
-
             <div class="total">
-                <input type="text" class="form-control centro" placeholder="Total">
+                <input type="number" class="form-control centro" placeholder="Total">
             </div>
         </div>
-Ñ
+
         <br>
 
         <!-- Sección Físico -->
@@ -215,13 +107,9 @@
             <h3>Físico</h3>
             <div class="estilo">
                 <label for="fisico1">¿Qué tanto te ejercitas?</label>
-                <input type="text" id="fisico1" class="form-control centro">
-                <label for="fisico2">¿Cuál es tu puntuación con tu físico actual?</label>
-                <input type="text" id="fisico2" class="form-control centro">
             </div>
-
             <div class="total">
-                <input type="text" class="form-control centro" placeholder="Total">
+                <input type="number" class="form-control centro" placeholder="Total">
             </div>
         </div>
 
@@ -232,13 +120,9 @@
             <h3>Financiero</h3>
             <div class="estilo">
                 <label for="financiero1">¿Qué tantos éxitos monetarios has obtenido?</label>
-                <input type="text" id="financiero1" class="form-control centro">
-                <label for="financiero2">¿Qué tanto te motiva tener un capital a futuro?</label>
-                <input type="text" id="financiero2" class="form-control centro">
             </div>
-
             <div class="total">
-                <input type="text" class="form-control centro" placeholder="Total">
+                <input type="number" class="form-control centro" placeholder="Total">
             </div>
         </div>
 
@@ -249,26 +133,15 @@
             <h3>Crecimiento personal</h3>
             <div class="estilo">
                 <label for="crecimiento1">¿Cuánto crees que crecerás en un entorno de trabajo a futuro?</label>
-                <input type="text" id="crecimiento1" class="form-control centro">
-                <label for="crecimiento2">¿Qué tan bien crees que te va a ir en el futuro?</label>
-                <input type="text" id="crecimiento2" class="form-control centro">
             </div>
 
             <div class="total">
-                <input type="text" class="form-control centro" placeholder="Total">
+                <input type="number" class="form-control centro" placeholder="Total">
             </div>
         </div>
-
-        <br>
-
-        <!-- Total calculado -->
-        <div class="total">
-            <input type="text" class="form-control centro" placeholder="Calculado">
-        </div>
-
         <br>
         <!-- Botón de envío (opcional) -->
-        <button id="calc" class="btn-custom">Calcular</button>
+        <button id="calc" class="btn-custom">Enviar</button>
     </div>
 
     <!-- Enlace a los scripts de Bootstrap -->
