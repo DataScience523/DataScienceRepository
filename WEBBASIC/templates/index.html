@@ -1,154 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="rueda.css">
-    <title>Rueda de la vida</title>
-    <!-- Enlace a la hoja de estilos de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Rueda de la Vida</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-
 <body>
+    <h1>Iyer Smith Torres Jaramillo y Juan Sebastian Quiceno Cano</h1>
+    <h2>¿Qué es la Rueda de la Vida?</h2>
+    <p>La Rueda de la Vida es una herramienta que permite evaluar el equilibrio entre distintas áreas importantes como salud, trabajo, relaciones y desarrollo personal.</p>
+    
+    <h2>Propósito de la Encuesta</h2>
+    <p>Esta encuesta te ayudará a visualizar qué áreas de tu vida necesitan más atención y cómo puedes mejorar tu bienestar.</p>
 
-    <!-- Contenedor principal de la página -->
-    <div class="container my-5 form-container">
-
-        <!-- Titulo principal -->
-        <nav class="titulo">s
-            <h1>Rueda de la vida</h1>
-        </nav>
-        <div class="social section-container">
-            <div class="estilo">
-                <label  class="soci" >nombre:</label>
-                <input type="text" class="reg">
-                <label class="soci" for="soci">apellido:</label>
-                <input type="text" class="reg">
-            </div>
-
-            <div class="persona">
-                
-                
-            </div>
-        </div>
-
-        <!-- Sección Social -->
-        <div class="social section-container">
-            <h3>Social</h3>
-            <div class="estilo">
-                <label for="social1">¿Qué tan social eres en un entorno del 1 al 10?</label>
-            </div>
-
-            <div class="total">
-                <input type="number" class="form-control centro" placeholder="Total">
-            </div>
-        </div>
-
-        <br>
-
-        <!-- Sección Espiritual -->
-        <div class="espiritual section-container">
-            <h3>Espiritual</h3>
-            <div class="estilo">
-                <label for="espiritual1">¿Qué tan bien te sientes contigo mismo?</label>
-            </div>
-
-            <div class="total">
-                <input type="number" class="form-control centro" placeholder="Total">
-            </div>
-        </div>
-
-        <br>
-
-        <!-- Sección Éxito -->
-        <div class="exito section-container">
-            <h3>Éxito</h3>
-            <div class="estilo">
-                <label for="exito1">¿Qué tan exitoso te crees?</label>
-            </div>
-
-            <div class="total">
-                <input type="number" class="form-control centro" placeholder="Total">
-            </div>
-        </div>
-
-        <br>
-
-        <!-- Sección Familia -->
-        <div class="familia section-container">
-            <h3>Familia</h3>
-            <div class="estilo">
-                <label for="familia1">¿Qué tanto te comunicas con tu familia hoy día?</label>
-            </div>
-
-            <div class="total">
-                <input type="number" class="form-control centro" placeholder="Total">
-            </div>
-        </div>
-
-        <br>
-
-        <!-- Sección Profesión -->
-        <div class="profesion section-container">
-            <h3>Profesión</h3>
-            <div class="estilo">
-                <label for="profesion1">¿Te sientes motivado/desmotivado con tu carrera actual?</label>
-            </div>
-            <div class="total">
-                <input type="number" class="form-control centro" placeholder="Total">
-            </div>
-        </div>
-
-        <br>
-
-        <!-- Sección Físico -->
-        <div class="fisico section-container">
-            <h3>Físico</h3>
-            <div class="estilo">
-                <label for="fisico1">¿Qué tanto te ejercitas?</label>
-            </div>
-            <div class="total">
-                <input type="number" class="form-control centro" placeholder="Total">
-            </div>
-        </div>
-
-        <br>
-
-        <!-- Sección Financiero -->
-        <div class="financiero section-container">
-            <h3>Financiero</h3>
-            <div class="estilo">
-                <label for="financiero1">¿Qué tantos éxitos monetarios has obtenido?</label>
-            </div>
-            <div class="total">
-                <input type="number" class="form-control centro" placeholder="Total">
-            </div>
-        </div>
-
-        <br>
-
-        <!-- Sección Crecimiento personal -->
-        <div class="crecimiento section-container">
-            <h3>Crecimiento personal</h3>
-            <div class="estilo">
-                <label for="crecimiento1">¿Cuánto crees que crecerás en un entorno de trabajo a futuro?</label>
-            </div>
-
-            <div class="total">
-                <input type="number" class="form-control centro" placeholder="Total">
-            </div>
-        </div>
-        <br>
-        <!-- Botón de envío (opcional) -->
-        <button id="calc" class="btn-custom">Enviar</button>
-    </div>
-
-    <!-- Enlace a los scripts de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <script src="alert.js"></script>
+    <a href="{{ url_for('Persona') }}">Ir a la Encuesta</a>
 </body>
-
 </html>
-
