@@ -1,94 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Usuario</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f7fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .form-container {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 400px;
-      margin: 20px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #333;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      color: #555;
-      font-weight: bold;
-    }
-
-    input[type="text"], input[type="email"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 16px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #007BFF;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .form-footer {
-      text-align: center;
-      margin-top: 20px;
-      color: #777;
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rueda.css">
+    <title>Rueda de la vida</title>
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rueda.css') }}">
 </head>
+
 <body>
-  <div class="form-container">
-    <h2>Formulario de Registro</h2>
-    <form id="my-form" action="#" method="POST">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
 
-      <label for="apellido">Apellido:</label>
-      <input type="text" id="apellido" name="apellido" required>
+    <!-- Contenedor principal de la página -->
+    <div class="container my-5 form-container">
 
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required>
+        <!-- Titulo principal -->
+        <nav class="titulo">s
+            <h1>Rueda de la vida</h1>
+        </nav>
 
-      <button id="enviar"  type="submit">Enviar</button>
-    </form>
+        <!--Formulario-->
+        <form action="/enviar" method="post">
 
-    <div class="form-footer">
-      <p>¡Gracias por registrarte!</p>
+            <div class="social section-container">
+                <div class="estilo">
+                    <label class="soci">nombre:</label>
+                    <input type="text" name="nombre" class="reg">
+                    <label class="soci" for="soci">apellido:</label>
+                    <input type="text" name="apellido" class="reg">
+                </div>
+
+                <div class="persona">
+
+
+                </div>
+            </div>
+
+            <!-- Sección Social -->
+            <div class="social section-container">
+                <h3>Social</h3>
+                <div class="estilo">
+                    <label for="social">¿Qué tan social eres en un entorno del 1 al 10?</label>
+                </div>
+
+                <div class="total">
+                    <input type="number" name="social" class="form-control centro" placeholder="Total">
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Sección Espiritual -->
+            <div class="espiritual section-container">
+                <h3>Espiritual</h3>
+                <div class="estilo">
+                    <label for="espiritual">¿Qué tan bien te sientes contigo mismo?</label>
+                </div>
+
+                <div class="total">
+                    <input type="number" name="espiritual" class="form-control centro" placeholder="Total">
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Sección Éxito -->
+            <div class="exito section-container">
+                <h3>Éxito</h3>
+                <div class="estilo">
+                    <label for="exito">¿Qué tan exitoso te crees?</label>
+                </div>
+
+                <div class="total">
+                    <input type="number" name="exito" class="form-control centro" placeholder="Total">
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Sección Familia -->
+            <div class="familia section-container">
+                <h3>Familia</h3>
+                <div class="estilo">
+                    <label for="familia">¿Qué tanto te comunicas con tu familia hoy día?</label>
+                </div>
+
+                <div class="total">
+                    <input type="number" name="familia" class="form-control centro" placeholder="Total">
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Sección Profesión -->
+            <div class="profesion section-container">
+                <h3>Profesión</h3>
+                <div class="estilo">
+                    <label for="profesion">¿Te sientes motivado/desmotivado con tu carrera actual?</label>
+                </div>
+                <div class="total">
+                    <input type="number" name="profesion" class="form-control centro" placeholder="Total">
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Sección Físico -->
+            <div class="fisico section-container">
+                <h3>Físico</h3>
+                <div class="estilo">
+                    <label for="fisico">¿Qué tanto te ejercitas?</label>
+                </div>
+                <div class="total">
+                    <input type="number" name="fisico" class="form-control centro" placeholder="Total">
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Sección Financiero -->
+            <div class="financiero section-container">
+                <h3>Financiero</h3>
+                <div class="estilo">
+                    <label for="financiero">¿Qué tantos éxitos monetarios has obtenido?</label>
+                </div>
+                <div class="total">
+                    <input type="number" name="financiero" class="form-control centro" placeholder="Total">
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Sección Crecimiento personal -->
+            <div class="crecimiento section-container">
+                <h3>Crecimiento personal</h3>
+                <div class="estilo">
+                    <label for="crecimiento">¿Cuánto crees que crecerás en un entorno de trabajo a futuro?</label>
+                </div>
+
+                <div class="total">
+                    <input type="number" name="crecimiento" class="form-control centro" placeholder="Total">
+                </div>
+            </div>
+            <br>
+            <!-- Botón de envío (opcional) -->
+            <button id="calc" type="submit" class="btn-custom">Enviar</button>
+        </form>
+
     </div>
-  </div>
-  <script src="registro.js" ></script>
+
+    <!-- Enlace a los scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/alert.js') }}"></script>
 </body>
+
 </html>
