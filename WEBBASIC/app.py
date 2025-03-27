@@ -1,4 +1,5 @@
 from flask import Flask, redirect, render_template, request, url_for
+from flask_mysqldb import MySQL
 import csv
 import numpy as np
 import pandas as pd
@@ -7,6 +8,15 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 app = Flask(__name__)
+
+# Configuración de la base de datos MySQL
+app.config['MYSQL_HOST'] = 'localhost' 
+app.config['MYSQL_USER'] = 'root' 
+app.config['MYSQL_PASSWORD'] = '' 
+app.config['MYSQL_DB'] = 'proyectodatascience' 
+
+# Inicializar MySQL
+mysql = MySQL(app)
 
 @app.route('/')
 def home():
@@ -18,6 +28,7 @@ def Persona():
 
 @app.route('/enviar', methods=['POST'])
 def enviar_datos():
+  
   nombre = request.form['nombre']
   apellido = request.form['apellido']
   ocio = (int)(request.form['social'])
@@ -59,6 +70,15 @@ def enviar_datos():
   plt.savefig('static/uploads/balance.png')  # Guarda en la carpeta 'static'
   plt.close()  # Cierra la figura para liberar memoria
   
+      # Guardar los datos en la base de datos MySQL
+  cur = mysql.connection.cursor()
+  cur.execute("""
+        INSERT INTO formulario (nombre, apellido, social, espiritual, exito, familia, profesion, fisico, financiero, crecimiento) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """, (nombre, apellido, ocio, personal, dinero, trabajo, fisica, familiar, social, espiritual))
+  mysql.connection.commit()
+  cur.close()
+  
   with open("datos.csv", "a+", newline ='') as csvfile:
     wr = csv.writer(csvfile, dialect='excel', delimiter=',')
     wr.writerow(totalMavIa)
@@ -76,8 +96,13 @@ def leer_csv():
 
 @app.route('/mostDatosIng')
 def mostDatosIng():
-    encabezado, datos = leer_csv()
-    return render_template('mostDatosIng.html', encabezado=encabezado, datos=datos)
+    # Consultar los datos de la base de datos
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM formulario")
+    datos = cur.fetchall()  # Obtener todos los registros
+    cur.close()
+    
+    return render_template('mostDatosIng.html', datos=datos)
 
 if __name__ == '__main__':
     app.run(debug=True)
