@@ -73,8 +73,8 @@ def enviar_datos():
       # Guardar los datos en la base de datos MySQL
   cur = mysql.connection.cursor()
   cur.execute("""
-        INSERT INTO formulario (nombre, apellido, social, espiritual, exito, familia, profesion, fisico, financiero, crecimiento) 
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    INSERT INTO formulario (nombre, apellido, social, espiritual, exito, familia, profesion, fisico, financiero, crecimiento) 
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """, (nombre, apellido, ocio, personal, dinero, trabajo, fisica, familiar, social, espiritual))
   mysql.connection.commit()
   cur.close()
