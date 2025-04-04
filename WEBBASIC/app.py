@@ -3,9 +3,13 @@ from flask_mysqldb import MySQL
 import csv
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 app = Flask(__name__)
 
@@ -57,8 +61,8 @@ def enviar_datos():
   }
   df = pd.DataFrame(Promedio)
   
-  Total_mean = np.mean(df[['ocio', 'personal', 'dinero', 'trabajo', 'fisica', 'familiar', 'social', 'espiritual']])
-  print(Total_mean)
+  df['promedio'] = np.mean(df[['ocio', 'personal', 'dinero', 'trabajo', 'fisica', 'familiar', 'social', 'espiritual']])
+  print(df)
   
   areas = ['ocio', 'personal', 'dinero', 'trabajo', 'fisica', 'familiar', 'social', 'espiritual']
   total = [ocio, personal, dinero, trabajo, fisica, familiar, social, espiritual]
@@ -70,7 +74,40 @@ def enviar_datos():
   plt.savefig('static/uploads/balance.png')  # Guarda en la carpeta 'static'
   plt.close()  # Cierra la figura para liberar memoria
   
-      # Guardar los datos en la base de datos MySQL
+  print(df.dtypes)
+  print(df.shape)  # (filas, columnas)
+
+  # Crear la variable objetivo (estado general: 1 = Bien, 0 = Mal)
+  df['estado_general'] = (df['promedio'] >= 6).astype(int)
+
+  # Separar variables predictoras y objetivo
+  X = df[['promedio']]
+  y = df['estado_general']
+
+  # Dividir en conjunto de entrenamiento y prueba
+  X_train = pd.DataFrame({'promedio': np.random.randint(1, 11, size=50)})
+  y_train = (X_train['promedio'] >= 6).astype(int)
+
+  # Entrenar el modelo
+  model = LogisticRegression()
+  model.fit(X_train, y_train)
+
+  # Hacer predicción con la única muestra real
+  estado_predicho = model.predict(df[['promedio']])
+
+  plt.figure(figsize=(6, 4))
+  plt.bar(['Promedio'], [df['promedio'].values[0]], color='blue', alpha=0.7)
+  plt.axhline(y=6, color='red', linestyle='--', label='Límite de Bienestar')
+  plt.xlabel("Indicador")
+  plt.ylabel("Valor")
+  plt.ylim(0, 10)
+  plt.title(f"Estado General: {'Bien' if estado_predicho == 1 else 'Mal'}")
+  plt.legend()
+  plt.savefig('static/uploads/regresion.png')  # Guarda en la carpeta 'static'
+  plt.close()  # Cierra la figura para liberar memoria
+  
+  
+  # Guardar los datos en la base de datos MySQL
   cur = mysql.connection.cursor()
   cur.execute("""
     INSERT INTO formulario (nombre, apellido, social, espiritual, exito, familia, profesion, fisico, financiero, crecimiento) 
@@ -84,6 +121,8 @@ def enviar_datos():
     wr.writerow(totalMavIa)
   
   return redirect(url_for('mostDatosIng'))
+
+
             
 def leer_csv():
     datos = []
